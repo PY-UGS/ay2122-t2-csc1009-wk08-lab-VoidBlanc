@@ -34,7 +34,7 @@ public class CircleWithException {
 
     public double getDiameter() throws Exception {
         this.diameter = this.radius * 2;
-        if(this.diameter < 0){
+        if(this.diameter <= 0){
             throw new Exception();
         }else{
             return this.diameter;
