@@ -16,17 +16,21 @@ public class BankDemoTest {
             System.out.println("Enter the amount you want to deposit : ");
             depositAmount = in.nextDouble();
             checkAccount.deposit(depositAmount);
+            try {
+                System.out.println("Enter the amount you want to withdraw : ");
+                withdrawAmount = in.nextDouble();
 
-            System.out.println("Enter the amount you want to withdraw : ");
-            withdrawAmount = in.nextDouble();
+                checkAccount.withdraw(withdrawAmount);
 
-            checkAccount.withdraw(withdrawAmount);
+                System.out.println("The balance after withdraw is: $" + checkAccount.getBalance());
 
-            System.out.println("The balance after withdraw is: $" + checkAccount.getBalance());
-
+            } catch (InsufficientFundsException e) {
+                System.out.println(e + " : Sorry but your account is short by: $" + (withdrawAmount - checkAccount.getBalance()));
+            }
         } catch (InsufficientFundsException e) {
-            System.out.println(e + " : Sorry but your account is short by: $" + (withdrawAmount - checkAccount.getBalance()));
+            System.out.println(e + " : Sorry deposit amount cannot be less than or equal to zero");
         }
+
 
     }
 }
