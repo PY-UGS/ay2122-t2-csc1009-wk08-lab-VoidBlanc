@@ -8,11 +8,10 @@ public class BankDemoTest {
         String accountNumber;
         double withdrawAmount = 0;
         double depositAmount = 0;
-
+        int option = 0;
         System.out.println("Enter your account number");
         accountNumber = in.nextLine();
         CheckingAccount checkAccount = new CheckingAccount(accountNumber);
-
         try {
             System.out.println("Enter the amount you want to deposit : ");
             depositAmount = in.nextDouble();
